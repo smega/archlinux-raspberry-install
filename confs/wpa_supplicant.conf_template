@@ -1,0 +1,9 @@
+country=
+ctrl_interface=DIR=/var/run/wpa_supplicant 
+update_config=1
+
+network={
+  ssid=""
+  psk=""
+  priority=5
+}
