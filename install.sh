@@ -305,9 +305,9 @@ while [ 1 ]; do
         "3)" "Download Archlinux gzip file."  \
         "4)" "Set hostname."  \
         "5)" "Set wireless config."  \
-        "9)" "Check settings before creating sdcard." \
-        "7)" "Start creating SDcard...."  \
-        "8)" "Exit script...." 3>&2 2>&1 1>&3
+        "7)" "Check settings before creating sdcard." \
+        "8)" "Start creating SDcard...."  \
+        "9)" "Exit script...." 3>&2 2>&1 1>&3
 )
 
   case $CHOICE in
@@ -364,7 +364,7 @@ while [ 1 ]; do
                setWireless
         ;;
 
-        "9)")
+        "7)")
              #check if all needed config settings are there
              #missing data
              globalmissing=$(check_array globals)
@@ -393,7 +393,7 @@ while [ 1 ]; do
              fi
         ;;
 
-        "7)")
+        "8)")
              card_contains=$(lsblk ${globals[sdcard]})
              if (whiptail --title "Check all data" --yesno "SDcard:\n$card_contains\nImage: ${globals[image]}\nHostname: ${globals[hostname]}\nWireless settings:\nCountrycode: ${globals_wifi[countrycode]}\nSSID: ${globals_wifi[ssid]}\nPassword: ${globals_wifi[ssid_password]}\n" 20 98); then
 
@@ -450,7 +450,7 @@ while [ 1 ]; do
              fi
         ;;
 
-        "8)")
+        "9)")
             exit
         ;;
   esac
